@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+     <meta charset="utf-8">
+    
+    <title>Calculadora de inversión</title>
+   
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/apexcharts"></script>
+
+
+
+    
+    <style>
+       
+        @import url(https://fonts.googleapis.com/css?family=Roboto);
+        @media screen and (max-width: 480px){
+    #encabezado{
+        height: auto;
+    }
+    #contenido{
+        width: auto;
+    }
+    #barra_lateral{
+        display:none;
+    }
+}
+     table, th, td {
+  border: 0px ;
+}
+
+        tr:hover {
+            background-color: #D6EEEE;
+        }
+        
+        
+table {
+    width: 40%;
+    border-collapse: collapse;
+    border-style: none;
+    
+}
+        
+        /* *****************Color de columnas ***************
+        tr:nth-child(even) {background-color: #f2f2f2;}
+        */
+       
+        
+        
+
+.limpiar {
+position: absolute; 
+  border: none;
+  padding: 0.5rem 1rem;
+  background: #0000FF;
+  color: white;
+  cursor: pointer;
+    bottom:540px;
+    left: 125px;
+    
+}
+        
+        .boton {
+  border: none;
+  padding: 0.5rem 1rem;
+  background: #0000FF;
+  color: white;
+  cursor: pointer;
+}
+
+        ::placeholder {
+    color: black;
+    font-size: 1.1em;
+    font-weight: 550;
+}
+        
+
+        
+
+body {
+  font-family: Roboto, sans-serif;
+}
+
+#chart {
+
+    position: relative;
+    top: -400px;
+    left: 200px;
+  max-width: 650px;
+  margin: 50px auto;
+    
+}
+    </style>
+    </head>
+    
+    <body>
+        <form id="formulario" name="" method="post">
+        <label>Inversion inicial:</label>    
+            <input class="InvInicial" type="number" name="" id="InvInc" autofocus>
+            
+        <button class="limpiar" onclick="limpiar();">Limpiar campos</button>    
+    
+            <br>
+            <br>
+            <label>Rendimiento del:</label>
+            <input type="number" name="" id="rendimiento" placeholder="8%" >
+            <br>
+            <br>
+            
+          
+        </form>
+        
+          <button type="button" class="boton" onclick="global();">Calcular</button>
+        <br>
+        <br>
+        
+            
+            <!-- **** Ocho% **** -->
+            <table class="Ocho" id="Ochoid">
+                <tr>
+                <th>Mes</th>
+                <th>Cantidad</th>
+                </tr>
+                
+                <tr>
+                    <div >
+                <th id="p1"></th>
+                    <th><span id="OchoM1"></span></th>
+                        </div>
+                </tr>
+                
+                <tr>  
+                <th id="p2"></th>
+                    <th><span id="OchoM2"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p3"></th>
+                    <th><span id="OchoM3"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p4"></th>
+                    <th><span id="OchoM4"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p5"></th>
+                    <th><span id="OchoM5"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p6"></th>
+                    <th><span id="OchoM6"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p7"></th>
+                    <th><span id="OchoM7"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p8"></th>
+                    <th><span id="OchoM8"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p9"></th>
+                    <th><span id="OchoM9"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p10"></th>
+                    <th><span id="OchoM10"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p11"></th>
+                    <th><span id="OchoM11"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p12"></th>
+                    <th><span id="OchoM12"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p13"></th>
+                    <th><span id="OchoM13"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p14"></th>
+                    <th><span id="OchoM14"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p15"></th>
+                    <th><span id="OchoM15"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p16"></th>
+                    <th><span id="OchoM16"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p17"></th>
+                    <th><span id="OchoM17"></span></th>
+                </tr>
+                
+                <tr>
+                <th id="p18"></th>
+                    <th><span id="OchoM18"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p19"></th>
+                    <th><span id="OchoM19"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p20"></th>
+                    <th><span id="OchoM20"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p21"></th>
+                    <th><span id="OchoM21"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p22"></th>
+                    <th><span id="OchoM22"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p23"></th>
+                    <th><span id="OchoM23"></span></th>
+                </tr>
+                
+                 <tr>
+                <th id="p24"></th>
+                    <th><span id="OchoM24"></span></th>
+                </tr>
+
+        </table>
+            
+        <div id="chart">
+</div>
+    
+        
+    
+        <script type="text/javascript">
+        function limpiar(){
+            
+            document.getElementById('formulario').reset();
+        }
+            
+            function formula(){
+                
+                var x= parseInt(document.getElementById('InvInc').value);
+                var r= .08;
+                
+                var i1= document.getElementById('OchoM1').innerHTML = ((x*r)+x);
+                var p1= document.getElementById('p1').innerHTML = '1ro:';
+                
+                var i2= document.getElementById('OchoM2').innerHTML = ((i1*r)+i1);
+                var p1= document.getElementById('p2').innerHTML = '2do:';
+                
+                var i3= document.getElementById('OchoM3').innerHTML= ((i2*r)+i2);
+                var p1= document.getElementById('p3').innerHTML = '3ro:';
+                    
+                
+                var i4= document.getElementById('OchoM4').innerHTML = ((i3*r)+i3);
+                var p1= document.getElementById('p4').innerHTML = '4to:';
+                
+                var i5= document.getElementById('OchoM5').innerHTML = ((i4*r)+i4);
+                var p1= document.getElementById('p5').innerHTML = '5to:';
+                
+                var i6= document.getElementById('OchoM6').innerHTML = ((i5*r)+i5);
+                 var p1= document.getElementById('p6').innerHTML = '6to:';
+                
+                var i7= document.getElementById('OchoM7').innerHTML = ((i6*r)+i6);
+                 var p1= document.getElementById('p7').innerHTML = '7mo:';
+                
+                var i8= document.getElementById('OchoM8').innerHTML = ((i7*r)+i7);
+                 var p1= document.getElementById('p8').innerHTML = '8mo:';
+                
+                var i9= document.getElementById('OchoM9').innerHTML = ((i8*r)+i8);
+                 var p1= document.getElementById('p9').innerHTML = '9no:';
+                
+                var i10= document.getElementById('OchoM10').innerHTML = ((i9*r)+i9);
+                 var p1= document.getElementById('p10').innerHTML = '10mo:';
+                
+                var i11= document.getElementById('OchoM11').innerHTML = ((i10*r)+i10);
+                var p1= document.getElementById('p11').innerHTML = '11vo:';
+                
+                var i12= document.getElementById('OchoM12').innerHTML = ((i11*r)+i11);
+                var p1= document.getElementById('p12').innerHTML = '12vo:';
+                
+                var i13= document.getElementById('OchoM13').innerHTML = ((i12*r)+i12);
+                var p1= document.getElementById('p13').innerHTML = '13vo:';
+                
+                var i14= document.getElementById('OchoM14').innerHTML = ((i13*r)+i13);
+                var p1= document.getElementById('p14').innerHTML = '14vo:';
+                
+                var i15= document.getElementById('OchoM15').innerHTML = ((i14*r)+i14);
+                var p1= document.getElementById('p15').innerHTML = '15vo:';
+                
+                var i16= document.getElementById('OchoM16').innerHTML = ((i15*r)+i15);
+                var p1= document.getElementById('p16').innerHTML = '16vo:';
+                
+                var i17= document.getElementById('OchoM17').innerHTML = ((i16*r)+i16);
+                var p1= document.getElementById('p17').innerHTML = '17vo:';
+                
+                var i18= document.getElementById('OchoM18').innerHTML = ((i17*r)+i17);
+                var p1= document.getElementById('p18').innerHTML = '18vo:';
+                
+                var i19= document.getElementById('OchoM19').innerHTML = ((i18*r)+i18);
+                var p1= document.getElementById('p19').innerHTML = '19vo:';
+                
+                var i20= document.getElementById('OchoM20').innerHTML = ((i19*r)+i19);
+                var p1= document.getElementById('p20').innerHTML = '20vo:';
+                
+                var i21= document.getElementById('OchoM21').innerHTML = ((i20*r)+i20);
+                var p1= document.getElementById('p21').innerHTML = '21vo:';
+                
+                var i22= document.getElementById('OchoM22').innerHTML = ((i21*r)+i21);
+                var p1= document.getElementById('p22').innerHTML = '22vo:';
+                
+                var i23= document.getElementById('OchoM23').innerHTML = ((i22*r)+i22);
+                var p1= document.getElementById('p23').innerHTML = '23vo:';
+                
+                var i24= document.getElementById('OchoM24').innerHTML = ((i23*r)+i23);
+                var p1= document.getElementById('p24').innerHTML = '24vo:';
+                
+                
+                
+                
+                
+                
+                if(i24 >=2999){
+                    document.getElementById('OchoM24').innerHTML = "";
+                }
+               
+                 if(i24 >=2999){
+                    document.getElementById('p24').innerHTML = "";
+                }
+             
+                
+                if(i23 >=2999){
+                    document.getElementById('OchoM23').innerHTML = "";
+                    document.getElementById('p23').innerHTML = "";
+                }
+                
+              
+                
+                
+              
+                
+                
+              if(i22 >=2999){
+                    document.getElementById('OchoM22').innerHTML = "";
+                  document.getElementById('p22').innerHTML = "";
+                }
+               
+                
+                
+                 if(i21 >=2999){
+                    document.getElementById('OchoM21').innerHTML = "";
+                     document.getElementById('p21').innerHTML = "";
+                }
+              
+                
+                if(i20 >=2999){
+                    document.getElementById('OchoM20').innerHTML = "";
+                    document.getElementById('p20').innerHTML = "";
+                }
+               
+                
+                
+                  if(i19 >=2999){
+                    document.getElementById('OchoM19').innerHTML = "";
+                      document.getElementById('p19').innerHTML = "";
+                }
+              
+                
+                
+                  if(i18 >=2999){
+                    document.getElementById('OchoM18').innerHTML = "";
+                      document.getElementById('p18').innerHTML = "";
+                }
+           
+              
+                
+                
+                 if(i17 >=2999){
+                    document.getElementById('OchoM17').innerHTML = "";
+                     document.getElementById('p17').innerHTML = "";
+                }
+           
+                
+                
+                 if(i16 >=2999){
+                    document.getElementById('OchoM16').innerHTML = "";
+                     document.getElementById('p16').innerHTML = "";
+                }
+             
+                
+                
+                 if(i15 >=2999){
+                    document.getElementById('OchoM15').innerHTML = "";
+                     document.getElementById('p15').innerHTML = "";
+                }
+               
+                
+                
+                 if(i14 >=2999){
+                    document.getElementById('OchoM14').innerHTML = "";
+                     document.getElementById('p14').innerHTML = "";
+                }
+                
+                
+                
+                 if(i13 >=2999){
+                    document.getElementById('OchoM13').innerHTML = "";
+                     document.getElementById('p13').innerHTML = "";
+                }
+              
+                
+                
+                  if(i12 >=2999){
+                    document.getElementById('OchoM12').innerHTML = "";
+                      document.getElementById('p12').innerHTML = "";
+                }
+               
+                
+                
+                  if(i11 >=2999){
+                    document.getElementById('OchoM11').innerHTML = "";
+                      document.getElementById('p11').innerHTML = "";
+                      }
+               
+                
+                
+                 if(i10 >=2999){
+                    document.getElementById('OchoM10').innerHTML = "";
+                     document.getElementById('p10').innerHTML = "";
+                }
+               
+                
+                
+                if(i9 >=2999){
+                    document.getElementById('OchoM9').innerHTML = "";
+                    document.getElementById('p9').innerHTML = "";
+                }
+              
+                
+                
+                if(i8 >=2999){
+                    document.getElementById('OchoM8').innerHTML = "";
+                    document.getElementById('p8').innerHTML = "";
+                }
+               
+                
+                
+                if(i7 >=2999){
+                    document.getElementById('OchoM7').innerHTML = "";
+                    document.getElementById('p7').innerHTML = "";
+                }
+             
+                
+                
+                if(i6 >=2999){
+                    document.getElementById('OchoM6').innerHTML = "";
+                    document.getElementById('p6').innerHTML = "";
+                }
+             
+                
+                
+                if(i5 >=2999){
+                    document.getElementById('OchoM5').innerHTML = "";
+                    document.getElementById('p5').innerHTML = "";
+                }
+              
+                
+                
+                if(i4 >=2999){
+                    document.getElementById('OchoM4').innerHTML = "";
+                    document.getElementById('p4').innerHTML = "";
+                }
+              
+                
+                
+                if(i3 >=2999){
+                    document.getElementById('OchoM3').innerHTML = "";
+                    document.getElementById('p3').innerHTML = "";
+                }
+              
+                
+                
+                if(i2 >=2999 ){
+                    document.getElementById('OchoM2').innerHTML = "";
+                    document.getElementById('p2').innerHTML = "";
+                }
+               
+                
+                
+                if(i1 >=2999){
+                    document.getElementById('OchoM1').innerHTML = "";
+                    document.getElementById('p1').innerHTML = "";
+                }
+              
+                
+                      
+                      
+                
+              
+            }
+   
+            
+            function global(){
+                formula();
+                chart();
+           
+            }
+            
+     
+            function chart(){
+       var options = {
+          series: [{
+          name: 'Progreso',
+          data: [document.getElementById('OchoM1').innerHTML, document.getElementById('OchoM2').innerHTML, 
+                document.getElementById('OchoM3').innerHTML, document.getElementById('OchoM4').innerHTML,
+                 document.getElementById('OchoM5').innerHTML, document.getElementById('OchoM6').innerHTML,
+                 document.getElementById('OchoM7').innerHTML, document.getElementById('OchoM8').innerHTML,
+                 document.getElementById('OchoM9').innerHTML, document.getElementById('OchoM10').innerHTML, 
+                 document.getElementById('OchoM11').innerHTML, document.getElementById('OchoM12').innerHTML]
+        }],
+          chart: {
+          height: 350,
+          type: 'bar',
+        },
+        plotOptions: {
+          bar: {
+            borderRadius: 10,
+            dataLabels: {
+              position: 'top', // top, center, bottom
+            },
+          }
+        },
+        dataLabels: {
+          enabled: true,
+          formatter: function (val) {
+            return ;
+          },
+          offsetY: -20,
+          style: {
+            fontSize: '12px',
+            colors: ["#304758"]
+          }
+        },
+        
+        xaxis: {
+          categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec",],
+          position: 'top',
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false
+          },
+          crosshairs: {
+            fill: {
+              type: 'gradient',
+              gradient: {
+                colorFrom: '#D8E3F0',
+                colorTo: '#BED1E6',
+                stops: [0, 100],
+                opacityFrom: 0.4,
+                opacityTo: 0.5,
+              }
+            }
+          },
+          tooltip: {
+            enabled: true,
+          }
+        },
+        yaxis: {
+          axisBorder: {
+            show: false
+          },
+          axisTicks: {
+            show: false,
+          },
+          labels: {
+            show: false,
+            formatter: function (val) {
+              return val;
+            }
+          }
+        
+        },
+        title: {
+          text: 'Crecimiento de inversión',
+          floating: true,
+          offsetY: 330,
+          align: 'center',
+          style: {
+            color: '#444'
+          }
+        }
+        };
+
+        var chart = new ApexCharts(document.querySelector("#chart"), options);
+        chart.render();
+                }
+            
+            
+        </script>
+    </body>
+    
+</html>
